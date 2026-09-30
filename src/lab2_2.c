@@ -1,28 +1,26 @@
 #include <stdio.h>
 
-/*
-    Task:
-    Write a function `long long factorial(int n)` that computes n!
-    using a loop (not recursion).
-
-    In main():
-      - Ask user for an integer n
-      - If n is negative, print an error and exit
-      - Otherwise, call factorial and print the result
-*/
-
+// Calculates the factorial of n iteratively
 long long factorial(int n) {
-    // TODO: compute factorial iteratively
-    return 1; // placeholder
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
 }
 
-int main(void) {
+int main() {
     int n;
-
-    printf("Enter a non-negative integer n: ");
+    printf("Enter n (0 or greater): ");
     scanf("%d", &n);
 
-    // TODO: validate input, call function, print result
-
+    if (n < 0) {
+        printf("Error: Factorial of a negative number does not exist.\n");
+    } else {
+        long long result = factorial(n);
+        printf("%d! = %lld\n", n, result);
+    }
+    
     return 0;
 }
+
